@@ -22,15 +22,21 @@ int m;
 // quantidade de pares origem-destino a ser calculado
 int k;
 
-int floyd_warshall()
+void floyd_warshall()
 {
-    for(int k = 0; k < n; k++)
+   for(int k = 0; k < n; k++)
+   {
       for(int i = 0; i < n; i++)
-        for(int j = 0; j < n; j++)
+      {
+         for(int j = 0; j < n; j++)
+         {
           /*
            * Adaptacao: originalmente, o calculo eh MA[i][j] = min(MA[i][j], MA[i][k] + MA[k][j]);
            */
           MA[i][j] = min(MA[i][j], max(MA[i][k], MA[k][j]));
+         }
+      }
+   }
 }
 
 int main()
