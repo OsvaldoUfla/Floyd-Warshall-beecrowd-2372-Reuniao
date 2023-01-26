@@ -1,5 +1,5 @@
 # GCC218-beecrowd-2372-Reunião
-Um exemplo de uso do algoritmo de Floyd-Warshall para encontrar caminhos mais curto entre os vértices.
+Um exemplo de uso do algoritmo de Floyd-Warshall para encontrar caminhos mais curto entre os vértices de todos para todos.
 Codigo usado para resolver a questão desafio encontro dos caminhoneiros
 
 Todos os anos, a SBC (Sociedade Brasileira de Caminhoneiros) reúne seus membros em alguma cidade para discutir sobre a profissão. Nessas reuniões são discutidos os problemas da categoria e são apresentadas sugestões sobre como melhorar as condições de trabalho.
