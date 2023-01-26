@@ -2,6 +2,7 @@
 #include<vector>
 #include<utility>
 #include<functional>
+#include<fstream>
 
 using namespace std;
 
@@ -43,48 +44,56 @@ void floyd_warshall()
 int main()
 {
     int instancia = 1;
-    cin >> n >> m;
-         
-    MA = new int*[n];
-    int u, v, h;
 
-    for(int i = 0; i < n; i++)
+    ifstream arquivo("Casos-de-Teste-Reuniao(BeeCrowd 2372)/4.in");
+    if(!arquivo)
     {
-        MA[i] = new int[n];
-        for(int j = 0; j < n; j++)
-            MA[i][j] = INF;
+        cout << "Erro ao abrir o arquivo de entrada" << endl;
+        return 0;
     }
+    else{
+        arquivo >> n >> m;
+            
+        MA = new int*[n];
+        int u, v, h;
 
-    for(int i = 0; i < m; i++)
-    {
-        cin >> u >> v >> h;
-        u;
-        v;
-        MA[u][v] = MA[v][u] = h;
-    }
-    
-    
-    floyd_warshall();
-
-    
-    for(int i = 0; i < n; i++)
-    {
-        for(int j = 0; j < n; j++)
+        for(int i = 0; i < n; i++)
         {
-            if(MA[i][j] > resultadoParcial)
+            MA[i] = new int[n];
+            for(int j = 0; j < n; j++)
+                MA[i][j] = INF;
+        }
+
+        for(int i = 0; i < m; i++)
+        {
+            arquivo >> u >> v >> h;
+            u;
+            v;
+            MA[u][v] = MA[v][u] = h;
+        }
+        
+        
+        floyd_warshall();
+
+        
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < n; j++)
             {
-                resultadoParcial = MA[i][j];
-            } 
+                if(MA[i][j] > resultadoParcial)
+                {
+                    resultadoParcial = MA[i][j];
+                } 
+            }
+            if(resultadoParcial < resultadoFinal)
+            {
+                resultadoFinal = resultadoParcial;
+                resultadoParcial = -1;
+            }
         }
-        if(resultadoParcial < resultadoFinal)
-        {
-            resultadoFinal = resultadoParcial;
-            resultadoParcial = -1;
-        }
+        
+        cout << resultadoFinal << endl;
     }
-    
-    cout << resultadoFinal;
-     
     
   
     return 0;
