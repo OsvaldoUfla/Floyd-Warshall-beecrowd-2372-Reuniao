@@ -1,10 +1,10 @@
 # GCC218-beecrowd-2372-Reunião
-Uma exemplo de uso do algoritmo de caminhos mais curto no caso o Floyd-Warshall retornando a distancia entre os vértices.
+Um exemplo de uso do algoritmo de Floyd-Warshall para encontrar caminhos mais curto entre os vértices.
 Codigo usado para resolver a questão desafio 04/05 encontro dos caminhoneiros
 
+## beecrowd-2372-Reunião  
 Todos os anos, a SBC (Sociedade Brasileira de Caminhoneiros) reúne seus membros em alguma cidade para discutir sobre a profissão. Nessas reuniões são discutidos os problemas da categoria e são apresentadas sugestões sobre como melhorar as condições de trabalho.
 
-## beecrowd-2372-Reunião
 O grande problema desse tipo de encontro é que os membros estão espalhados pelo país, uma vez que a profissão exige que eles viajem para diversos lugares todos os dias. Por isso, a escolha da cidade onde será feita a reunião sempre é feita de modo que não prejudique demais nenhum dos caminhoneiros. O critério para tal é que a maior das distâncias percorridas pelos caminhoneiros para chegar ao local da reunião deve ser a menor possível. Ou seja, a distância percorrida pelo caminhoneiro que vai percorrer a maior distância entre todos os caminhoneiros para chegar à reunião deve ser a menor possível.
 
 Dadas as cidades onde se encontram os caminhoneiros e a descrição das estradas que interligam essas cidades,escreva um programa que determina qual será a menor distância máxima percorrida por um caminhoneiro parachegar até o local da reunião. Os caminhoneiros conhecem bem as estradas, e portando sempre fazem o menor caminho possível até a cidade da reunião. Sempre existe um caminho ligando quaisquer duas cidades.
