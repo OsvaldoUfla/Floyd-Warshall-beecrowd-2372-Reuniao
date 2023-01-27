@@ -23,19 +23,41 @@ int m;
  int resultadoParcial = -1;
  int resultadoFinal = INF;
 
+void exibeMatriz(int n, int m, int** MA){
+    cout << endl;
+    for(int i=1 ; i < n ; i++)
+    {
+        for(int j = 1 ; j < n ; j++)
+        {
+            if(MA[i][j] < 0){
+                cout << MA[i][j] << " ";
+            }
+            else{
+                if(MA[i][j] == INF){
+                    cout << " ∞ " ;
+                }
+                else{
+                    cout << " " << MA[i][j] << " ";
+                }
+            }
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
 void floyd_warshall()
 {
-   for(int k = 0; k < n; k++)
+   for(int k = 1; k < n; k++)
    {
-      for(int i = 0; i < n; i++)
+      for(int i = 1; i < n; i++)
       {
-         for(int j = 0; j < n; j++)
+         for(int j = 1; j < n; j++)
          {
-          /*
-           * Adaptacao: originalmente, o calculo eh MA[i][j] = min(MA[i][j], MA[i][k] + MA[k][j]);
-           */
-          //MA[i][j] = min(MA[i][j], max(MA[i][k], MA[k][j]));
-            MA[i][j] = min(MA[i][j], MA[i][k] + MA[k][j]);
+            if( (MA[i][k] + MA[k][j]) < MA[i][j]){
+                MA[i][j] = min(MA[i][j], MA[i][k] + MA[k][j]);
+                exibeMatriz(n, n, MA);
+            }
          }
       }
    }
@@ -53,7 +75,7 @@ int main()
     }
     else{
         arquivo >> n >> m;
-            
+        n++;   
         MA = new int*[n];
         int u, v, h;
 
@@ -69,16 +91,20 @@ int main()
             arquivo >> u >> v >> h;
             u;
             v;
-            MA[u][v] = MA[v][u] = h;
+            //MA[u][v] = MA[v][u] = h;//se não for direcionado
+            MA[u][v] = h;//se for direcionado
         }
-        
+
+        exibeMatriz(n, n, MA);
         
         floyd_warshall();
 
+        exibeMatriz(n, n, MA);
         
-        for(int i = 0; i < n; i++)
+        
+        for(int i = 1; i < n; i++)
         {
-            for(int j = 0; j < n; j++)
+            for(int j = 1; j < n; j++)
             {
                 if(MA[i][j] > resultadoParcial)
                 {
